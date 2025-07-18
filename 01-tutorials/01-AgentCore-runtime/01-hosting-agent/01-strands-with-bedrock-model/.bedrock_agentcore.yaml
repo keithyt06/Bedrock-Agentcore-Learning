@@ -1,0 +1,25 @@
+default_agent: strands_claude_weather2
+agents:
+  strands_claude_weather2:
+    name: strands_claude_weather2
+    entrypoint: /Users/keithyu/Documents/code/Bedrock-Agentcore-Learning/01-tutorials/01-AgentCore-runtime/01-hosting-agent/01-strands-with-bedrock-model/strands_claude.py
+    platform: linux/arm64
+    container_runtime: docker
+    aws:
+      execution_role: arn:aws:iam::434465421667:role/agentcore-strands_claude_weather-role
+      account: '434465421667'
+      region: us-east-1
+      ecr_repository: 434465421667.dkr.ecr.us-east-1.amazonaws.com/bedrock_agentcore-strands_claude_weather2
+      ecr_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: strands_claude_weather2-LsvDyxAzjA
+      agent_arn: arn:aws:bedrock-agentcore:us-east-1:434465421667:runtime/strands_claude_weather2-LsvDyxAzjA
+      agent_session_id: 8a9791d0-3c54-459a-b4c2-09cf2ecb9dda
+    authorizer_configuration: null
+    oauth_configuration: null
